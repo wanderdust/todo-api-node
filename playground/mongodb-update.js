@@ -1,6 +1,6 @@
 const {MongoClient, ObjectID} = require('mongodb');
 
-MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
+MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp', (err, db) => {
   db.collection('Users').findOneAndUpdate({
     name: 'Pus'
   }, {
